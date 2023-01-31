@@ -14,5 +14,5 @@ jobs:
       - name: python Commands
         run: |
           import platform
-          iprint(platform.processor())
+          print(platform.processor())
         shell: python
