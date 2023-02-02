@@ -15,4 +15,6 @@ jobs:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
 
       - name: Display decrypted json file content
-      #run: cat $HOME/decrypted.json
+        run: |
+          echo "Wykomentowany kod z podwodu bladuw wersji GPG"
+    #cat $HOME/decrypted.json
