@@ -25,8 +25,8 @@ jobs:
           pwd
           ls -a 
           git init
-          echo "Url do puszowania $GITHUB_ACTOR https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          echo "Url do puszowania https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}.git"
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}.git"
           git config --global user.email "my-bot-action@bot.com"
           git config --global user.name "my-bot-action"
           git fetch
