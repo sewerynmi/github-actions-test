@@ -35,6 +35,6 @@ jobs:
           ls -a 
           echo $RANDOM >> random.txt
           ls -a 
-          git add -a
+          git add -A
           git commit -m "Add random.txt file by github action"
           git push
