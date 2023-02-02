@@ -21,13 +21,13 @@ jobs:
             }' \
           --fail
 
+      # This step will pull repo, add file random.txt with a random number in it and push that file to repo.
+      # Important to add write permission in permissons->contents:write (look above)
       - name: Create and push random number file
         run: |
           pwd
           ls -a 
           git init
-          echo "Url do puszowania https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          git config --global init.defaultBranch master
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           git config --global user.email "my-bot-action@bot.com"
           git config --global user.name "my-bot-action"
