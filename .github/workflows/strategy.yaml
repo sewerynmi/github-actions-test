@@ -23,7 +23,7 @@ jobs:
       - name: Log node version
         run: |
           node -v
-          echo "Is Ubuntu and Node 8 : $IS_UBUNTU_8"
+          echo "Is Ubuntu and Node 8 : ${IS_UBUNTU_8}"
 
       - uses: actions/setup-node@v1
         name: Setup node
