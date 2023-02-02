@@ -2,6 +2,10 @@ name: Using strategy (Matrix)
 on: push
 jobs:
   node-versions:
+    strategy:
+      matrix:
+        node_versions: [6, 8, 10, 17]
+      max-parallel: 2
     runs-on: ubuntu-latest
     steps:
       - name: Log node version
