@@ -32,9 +32,9 @@ jobs:
           git checkout master
           git branch --set-upstream-to=origin/master
           git pull
-          ls -a 
+          ls -a
           echo $RANDOM >> random.txt
-          ls -a 
+          ls -a
           git add -A
           git commit -m "Add random.txt file by github action"
           git push
