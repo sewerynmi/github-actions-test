@@ -1,20 +1,20 @@
-name: Decrypt GPG file
-on: push
+# name: Decrypt GPG file
+# on: push
 
-jobs:
-  decrypt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+# jobs:
+#   decrypt:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Decrypt json file
-        run: |
-          gpg --version
-        #gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/decrypted.json encrypted.json.gpg
-        env:
-          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+#       - name: Decrypt json file
+#         run: |
+#           gpg --version
+#         #gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/decrypted.json encrypted.json.gpg
+#         env:
+#           PASSPHRASE: ${{ secrets.PASSPHRASE }}
 
-      - name: Display decrypted json file content
-        run: |
-          echo "Wykomentowany kod z podwodu bladuw wersji GPG"
-    #cat $HOME/decrypted.json
+#       - name: Display decrypted json file content
+#         run: |
+#           echo "Wykomentowany kod z podwodu bladuw wersji GPG"
+#     #cat $HOME/decrypted.json

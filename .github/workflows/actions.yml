@@ -1,48 +1,48 @@
-name: Actions Workflow
+# name: Actions Workflow
 
-on:
-  repository_dispatch:
-    types: [build]
-  push:
-    branches:
-      - master
-      - "**eahw-**"
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+# on:
+#   repository_dispatch:
+#     types: [build]
+#   push:
+#     branches:
+#       - master
+#       - "**eahw-**"
+#   pull_request:
+#     types: [closed, assigned, opened, reopened]
 
-jobs:
-  run-github-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: List files
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
+# jobs:
+#   run-github-actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: List files
+#         run: |
+#           pwd
+#           ls -a
+#           echo $GITHUB_SHA
+#           echo $GITHUB_REPOSITORY
+#           echo $GITHUB_WORKSPACE
 
-      - name: Checkout
-        uses: actions/checkout@v1
+#       - name: Checkout
+#         uses: actions/checkout@v1
 
-      - name: Post-checkout list files
-        run: |
-          pwd
-          ls -a
+#       - name: Post-checkout list files
+#         run: |
+#           pwd
+#           ls -a
 
-      - name: Simple JS Actions
-        id: greet
-        uses: actions/hello-world-javascript-action@v1.1
-        with:
-          who-to-greet: John # This var is specified in actions/hello-world-javascript-action repo.
+#       - name: Simple JS Actions
+#         id: greet
+#         uses: actions/hello-world-javascript-action@v1.1
+#         with:
+#           who-to-greet: John # This var is specified in actions/hello-world-javascript-action repo.
 
-      - name: Log Greeting time
-        run: echo "${{ steps.greet.outputs.time }}"
+#       - name: Log Greeting time
+#         run: echo "${{ steps.greet.outputs.time }}"
 
-  run_if_failure:
-    if: ${{ !github.event.client_payload.passed }}
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          MESSAGE: ${{ github.event.client_payload.message }}
-        run: echo $MESSAGE
+#   run_if_failure:
+#     if: ${{ !github.event.client_payload.passed }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - env:
+#           MESSAGE: ${{ github.event.client_payload.message }}
+#         run: echo $MESSAGE

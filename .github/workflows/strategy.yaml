@@ -1,36 +1,36 @@
-name: Using strategy (Matrix)
-on: push
-jobs:
-  node-versions:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-        node_versions: [6, 8, 16]
-        include:
-          - os: ubuntu-latest
-            node_versions: 8
-            is_ubuntu_8: "true" # add additional variable
-        exclude:
-          - os: ubuntu-latest
-            node_versions: 6
-          - os: macos-latest
-            node_versions: 8
-      max-parallel: 2
-    runs-on: ${{ matrix.os }}
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: Log node version
-        run: |
-          node -v
-          echo "Is Ubuntu and Node 8 : ${IS_UBUNTU_8}"
+# name: Using strategy (Matrix)
+# on: push
+# jobs:
+#   node-versions:
+#     strategy:
+#       matrix:
+#         os: [macos-latest, ubuntu-latest, windows-latest]
+#         node_versions: [6, 8, 16]
+#         include:
+#           - os: ubuntu-latest
+#             node_versions: 8
+#             is_ubuntu_8: "true" # add additional variable
+#         exclude:
+#           - os: ubuntu-latest
+#             node_versions: 6
+#           - os: macos-latest
+#             node_versions: 8
+#       max-parallel: 2
+#     runs-on: ${{ matrix.os }}
+#     env:
+#       IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
+#     steps:
+#       - name: Log node version
+#         run: |
+#           node -v
+#           echo "Is Ubuntu and Node 8 : ${IS_UBUNTU_8}"
 
-      - uses: actions/setup-node@v1
-        name: Setup node
-        with:
-          node-version: ${{ matrix.node_versions }}
+#       - uses: actions/setup-node@v1
+#         name: Setup node
+#         with:
+#           node-version: ${{ matrix.node_versions }}
 
-      - name: Log node version
-        run: |
-          node -v
-          echo "Is Ubuntu and Node 8 : ${IS_UBUNTU_8}"
+#       - name: Log node version
+#         run: |
+#           node -v
+#           echo "Is Ubuntu and Node 8 : ${IS_UBUNTU_8}"

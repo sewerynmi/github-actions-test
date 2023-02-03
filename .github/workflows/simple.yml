@@ -1,28 +1,28 @@
-name: Shell Commands
-on: [pull_request]
+# name: Shell Commands
+# on: [pull_request]
 
-jobs:
-  run-shell-command:
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo a string
-        run: echo "Hello from github job !"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
-      - name: python Commands
-        run: |
-          import platform
-          print(platform.processor())
-        shell: python
+# jobs:
+#   run-shell-command:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: echo a string
+#         run: echo "Hello from github job !"
+#       - name: multiline script
+#         run: |
+#           node -v
+#           npm -v
+#       - name: python Commands
+#         run: |
+#           import platform
+#           print(platform.processor())
+#         shell: python
 
-  run-windows-commands:
-    runs-on: windows-latest
-    needs: [run-shell-command]
-    steps:
-      - name: Use def. shell (powershell)
-        run: Get-Location
-      - name: Use bash
-        run: pwd
-        shell: bash
+#   run-windows-commands:
+#     runs-on: windows-latest
+#     needs: [run-shell-command]
+#     steps:
+#       - name: Use def. shell (powershell)
+#         run: Get-Location
+#       - name: Use bash
+#         run: pwd
+#         shell: bash

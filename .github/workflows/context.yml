@@ -1,40 +1,40 @@
-name: Context
-on: [push, pull_request]
+# name: Context
+# on: [push, pull_request]
 
-jobs:
-  one:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
-      - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+# jobs:
+#   one:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Dump GitHub Context
+#         env:
+#           GITHUB_CONTEXT: ${{ toJson(github) }}
+#         run: echo "$GITHUB_CONTEXT"
+#       - name: Dump job context
+#         run: echo '${{ toJSON(job) }}'
+#       - name: Dump steps context
+#         run: echo '${{ toJSON(steps) }}'
+#       - name: Dump runner context
+#         run: echo '${{ toJSON(runner) }}'
+#       - name: Dump strategy context
+#         run: echo '${{ toJSON(strategy) }}'
+#       - name: Dump matrix context
+#         run: echo '${{ toJSON(matrix) }}'
 
-  on-push:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-    steps:
-      - name: Action on push
-        run: echo "You see this because the github event was PUSH"
-      - name: Generate error
-        run: echho "This will generate error as there is no echho command"
-      - name: Still execute that step
-        if: failure() # this will be true only if previous step failed (and it should)
-        run: echo "Still executed despite the fact there was an error in above step ... nice !"
+#   on-push:
+#     runs-on: ubuntu-latest
+#     if: github.event_name == 'push'
+#     steps:
+#       - name: Action on push
+#         run: echo "You see this because the github event was PUSH"
+#       - name: Generate error
+#         run: echho "This will generate error as there is no echho command"
+#       - name: Still execute that step
+#         if: failure() # this will be true only if previous step failed (and it should)
+#         run: echo "Still executed despite the fact there was an error in above step ... nice !"
 
-  on-pull-request:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Action on Pull Request only
-        run: echo "You see this because the github event was pull_request !"
+#   on-pull-request:
+#     runs-on: ubuntu-latest
+#     if: github.event_name == 'pull_request'
+#     steps:
+#       - name: Action on Pull Request only
+#         run: echo "You see this because the github event was pull_request !"
